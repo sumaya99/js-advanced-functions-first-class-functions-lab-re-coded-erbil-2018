@@ -1,20 +1,25 @@
-function countdown(callback) {
-  setTimeout(function () {
-    callback();
-  }, 2000);
-}
+// Code your solution in this file!
 
-function createMultiplier(multiplyValue) {
+const returnFirstTwoDrivers = function (drivers) {
+  return drivers.slice(0, 2);
+};
+
+const returnLastTwoDrivers = function (drivers) {
+  return drivers.slice(-2);
+};
+
+const selectingDrivers = [ returnFirstTwoDrivers, returnLastTwoDrivers ];
+
+const createFareMultiplier = function (multiplyValue) {
   return function (value) {
     return multiplyValue * value;
   };
-}
+};
 
-function multiplier(a, b) {
-  return a * b;
-}
+const fareDoubler = createFareMultiplier(2);
 
-var doubler = createMultiplier(2);
-var tripler = createMultiplier(3);
-var doublerWithBind = multiplier.bind(null, 2);
-var triplerWithBind = multiplier.bind(null, 3);
+const fareTripler = createFareMultiplier(3);
+
+const selectDifferentDrivers = function (drivers, whichDrivers) {
+  return whichDrivers(drivers);
+};
